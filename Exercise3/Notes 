@@ -1,0 +1,15 @@
+It’s easy to forget that the stored value is an approximation to the original decimal fraction, because of the way that floats are displayed at the interpreter prompt. Python only prints a decimal approximation to the true decimal value of the binary approximation stored by the machine. If Python were to print the true decimal value of the binary approximation stored for 0.1, it would have to display
+
+Note that this is in the very nature of binary floating-point: this is not a bug in Python, and it is not a bug in your code either. You’ll see the same kind of thing in all languages that support your hardware’s floating-point arithmetic (although some languages may not display the difference by default, or in all output modes).
+
+Other surprises follow from this one. For example, if you try to round the value 2.675 to two decimal places, you get this
+
+>>>
+>>> round(2.675, 2)
+2.67
+The documentation for the built-in round() function says that it rounds to the nearest value, rounding ties away from zero. Since the decimal fraction 2.675 is exactly halfway between 2.67 and 2.68, you might expect the result here to be (a binary approximation to) 2.68. It’s not, because when the decimal string 2.675 is converted to a binary floating-point number, it’s again replaced with a binary approximation, whose exact value is
+
+2.67499999999999982236431605997495353221893310546875
+Since this approximation is slightly closer to 2.67 than to 2.68, it’s rounded down.
+
+If you’re in a situation where you care which way your decimal halfway-cases are rounded, you should consider using the decimal module. Incidentally, the decimal module also provides a nice way to “see” the exact value that’s stored in any particular Python float
