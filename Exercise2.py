@@ -5,7 +5,7 @@ print "I am" # Am trying not to stop typing
 raw_input() 
 print "Trying" # I will just continue to go by 
 raw_input()
-print "To learn" # so I am not going stop  
+print "To learn" #  so I am not going stop  
 raw_input() 
 print "Something" # cant sepnt a lot of time on  
 raw_input()
