@@ -1,5 +1,5 @@
 my_name = 'Jordan'
-my_age = 24 # My age 
+my_age = 25 # My age 
 my_height = 71 # inches
 my_weight = 165 # lbs
 my_eyes = 'Brown'
